@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="1dp"
+        android:id="@+id/water_btn"
+        android:textSize="10dp"
+        android:onClick="mOnClick"
+        android:text="컵 선택하기버튼" />    
+        
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오늘 날짜 : "  
+        android:id="@+id/today"
+        android:textSize="20dp"       
+        />
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"  
+        android:fadingEdge="none"      
+         >
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:stretchColumns="0,1,2"
+        android:id="@+id/table" >
+
+    </TableLayout>
+</ScrollView>
+</LinearLayout>

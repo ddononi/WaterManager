@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	
+    <LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+
+	    android:layout_weight="1">
+        
+        <TextView
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="Today's Goal : 2000mL"
+             />
+        <!-- 
+        <ImageView
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="Today's Goal : 2000mL"
+             />        
+        -->
+        
+        <TextView
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="현재 마신물 : "
+            android:id="@+id/today_water_txt"
+             />
+                
+    </LinearLayout>
+
+    <LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="7"
+	    android:orientation="horizontal">
+        
+	   <Button 
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"   
+		    android:text="Drink"   
+		    android:layout_weight="1"
+		    android:id="@+id/drink_btn" 
+		    android:onClick="mOnClick"
+	        />
+	   <Button 
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"   
+		    android:text="Alarm"
+		    android:layout_weight="1"   
+		    android:id="@+id/alarm_btn"
+		    android:onClick="mOnClick" 
+	        />
+	   <Button 
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"   
+		    android:text="Chart"
+  			android:layout_weight="1"
+		    android:id="@+id/chart_btn" 
+		    android:onClick="mOnClick"
+	        />
+	   <Button 
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"   
+		    android:text="Intro"
+		    android:layout_weight="1"   
+		    android:id="@+id/intro_btn"
+		    android:onClick="mOnClick" 
+	        />		   	   	   
+
+    </LinearLayout> 
+ 
+</LinearLayout>
