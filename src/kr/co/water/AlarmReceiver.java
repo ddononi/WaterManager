@@ -46,7 +46,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		notif.defaults |= Notification.DEFAULT_LIGHTS;	// led도 키자
 
 		//	진동알람을 설정했으면 진동을 울린다.
-		if( sp.getBoolean("vabration", false) ){
+		if( sp.getBoolean("vibration", false) ){
 			long[] vibrate = {1000, 1000, 1000, 1000, 1000};  // 1초간 5번 
 			notif.vibrate = vibrate;  
 		}
