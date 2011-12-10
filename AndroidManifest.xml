@@ -5,6 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="10" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -18,12 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="MainActivity"></activity>
-        <activity android:name="DrinkActivity"></activity>
-        <activity android:name="AlarmActivity"></activity>
-        <activity android:name="ChartActivity"></activity>
-        <activity android:name="IntroActivity"></activity>
-        <activity android:name="SelectActivity"></activity>
+        <activity android:name="MainActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name="DrinkActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name="AlarmActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name="ChartActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name="IntroActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name="SelectActivity" android:screenOrientation="portrait"></activity>
+        
+        <receiver android:name=".AlarmReceiver" />
+        <service android:name="AlarmService"></service>            
     </application>
 
 </manifest>
