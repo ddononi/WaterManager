@@ -2,11 +2,19 @@ package kr.co.water;
 
 import java.util.Calendar;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -14,19 +22,17 @@ import android.widget.TextView;
  */
 public class MainActivity extends BaseActivity {
 	private int[] images = {	// 마신양에 따라 보여줄 이미지
-			R.drawable.cup,		// 1 단계
-			R.drawable.cup,		// 2 단계
-			R.drawable.cup,		// 3 단계
-			R.drawable.cup,		// 4 단계
-			R.drawable.cup,		// 5 단계
-			R.drawable.cup,		// 6 단계
-			R.drawable.cup,		// 7 단계
-			R.drawable.cup,		// 8 단계
-			R.drawable.cup,		// 9 단계
-			R.drawable.cup,		// 10 단계
+			R.drawable.water1,
+			R.drawable.water2,
+			R.drawable.water3,
+			R.drawable.water4,
+			R.drawable.water5,
+			R.drawable.water6
 			
 	};
-	private Calendar calendar; // 날짜
+	
+	private Calendar calendar; 	// 날짜
+	private ImageView personIV;	// 사람 이미지
 	
 	// 엘리먼트
 	private TextView todayWaterTV;
@@ -42,7 +48,7 @@ public class MainActivity extends BaseActivity {
 		
 		// hocking
 		todayWaterTV = (TextView) findViewById(R.id.today_water_txt);
-
+		personIV = (ImageView) findViewById(R.id.person);
 	}
 	
 	
@@ -67,32 +73,37 @@ public class MainActivity extends BaseActivity {
 	 */
 	private void drawMyBody(int total) {
 		// TODO Auto-generated method stub
-		if(total >= 0 && total < 100){
-			
-		}else if(total >= 0 && total < 100){
-			
-		}else if(total >= 100 && total < 200){
-			
-		}else if(total >= 200 && total < 300){
-			
-		}else if(total >= 300 && total < 400){
-			
-		}else if(total >= 400 && total < 500){
-			
-		}else if(total >= 500 && total < 600){
-			
-		}else if(total >= 600 && total < 700){
-			
-		}else if(total >= 700 && total < 800){
-			
-		}else if(total >= 800 && total < 900){
-			
-		}else{	// 900 이상이면
-			
+		int r;
+		if(total >= 0 && total < 150){
+			r = R.drawable.p1;
+		}else if(total >= 150 && total < 300){
+			r = R.drawable.p2;
+		}else if(total >= 300 && total < 500){
+			r = R.drawable.p3;
+		}else if(total >= 500 && total < 700){
+			r = R.drawable.p4;
+		}else if(total >= 700 && total < 850){
+			r = R.drawable.p5;
+		}else if(total >= 850 && total < 1000){
+			r = R.drawable.p6;
+		}else if(total >= 1000 && total < 1150){
+			r = R.drawable.p7;
+		}else if(total >= 1150 && total < 1300){
+			r = R.drawable.p8;
+		}else if(total >= 1300 && total < 1500){
+			r = R.drawable.p9;
+		}else if(total >= 1500 && total < 1700){
+			r = R.drawable.p10;
+		}else if(total >= 1700 && total < 1900){
+			r = R.drawable.p11;
+		}else if(total >= 1900 && total < 2000){
+			r = R.drawable.p12;
+		}else{
+			r = R.drawable.p13;
 		}
 		
 		// 그리기 작업
-		
+		personIV.setImageResource(r);
 	}
 
 
@@ -161,4 +172,28 @@ public class MainActivity extends BaseActivity {
 
 		return total;
 	}
+	
+	/** 뒤로가기 버튼 클릭시  앱 종료 */
+	@Override
+	public void onBackPressed() {
+		finishDialog(this);
+		
+	}
+	
+	/**
+	 * 종료 confirm 다이얼로그 창
+	 * @param context
+	 */
+	public void finishDialog(Context context){
+		AlertDialog.Builder ad = new AlertDialog.Builder(context);
+		ad.setTitle("").setMessage("프로그램을 종료하시겠습니까?")
+		.setPositiveButton("종료", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				moveTaskToBack(true);moveTaskToBack(true);
+                finish();
+			}
+		}).setNegativeButton("취소",null).show();
+    }	
 }

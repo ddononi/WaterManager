@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
@@ -17,15 +18,13 @@ import android.widget.Toast;
 
 public class DrinkActivity extends Activity {
 	private int[] cupImages = {
-		R.drawable.cup,
-		R.drawable.cup,
-		R.drawable.cup,
-		R.drawable.cup,
-		R.drawable.cup,
-		R.drawable.cup,
-		R.drawable.cup,
-		R.drawable.cup,
-		R.drawable.cup
+		R.drawable.water1,
+		R.drawable.water2,
+		R.drawable.water3,
+		R.drawable.water4,
+		R.drawable.water5,
+		R.drawable.water6
+
 	};
 	
 	private Calendar calendar;		// 날짜
@@ -72,11 +71,28 @@ public class DrinkActivity extends Activity {
 				cup.setBackgroundResource(resid);
 				child.addView(cup);
 				i++;
+				Log.i("water", i + "");
 				if( i % 3 == 0){	// 한 열에 3개씩
 					tableTL.addView(child);
 					child = new TableRow(this);
+					Log.i("water", "TableRow");
 				}
 				if(cursor.isLast() ){	// 마지막이면 3개가 채워지지 않더라고 테이블에 붙여준다.
+					Log.i("water", "last");
+					//	3개 이하면 컵 모양이 늘어나는걸 방지하기 위해  나머지 빈 이미지를 채운다.
+					if(cursor.getCount() < 3){	
+						Log.i("water", "1~2");
+						cup = new ImageView(this);
+						cup.setBackgroundResource(resid);
+						cup.setVisibility(View.INVISIBLE);
+						child.addView(cup);
+						if(cursor.getCount() == 1){	// 컵이 한개면 하나 더 채운다.
+							cup = new ImageView(this);
+							cup.setBackgroundResource(resid);
+							cup.setVisibility(View.INVISIBLE);					
+							child.addView(cup);
+						}
+					}
 					tableTL.addView(child);
 				}
 			}while( cursor.moveToNext() );	// 다음 커서가 있으면 내용을 가져온다.
@@ -96,27 +112,25 @@ public class DrinkActivity extends Activity {
 		// TODO Auto-generated method stub
 		int index = 0;
     	switch(water){
-    	case 100:
+    	case 50:
     		index = 0;
     		break;
-    	case 200:
+    	case 150:
     		index = 1;
     		break;
-    	case 300:
+    	case 200:
     		index = 2;
     		break;
-    	case 400:
+    	case 500:
     		index = 3;
     		break;
-    	case 500:
+    	case 700:
     		index = 4;
     		break;
-    	case 600:
+    	case 1000:
     		index = 5;
     		break;
-    	case 700:
-    		index = 6;
-    		break;    		
+ 		
     	}		
 		return index;
 	}

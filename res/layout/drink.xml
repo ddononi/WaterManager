@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgboard"    
     android:orientation="vertical" >
 
     
@@ -20,9 +21,16 @@
         android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="오늘 날짜 : "  
-        android:id="@+id/today"
+        android:text="오늘  날짜 : "  
+        android:textColor="#111111"
+        android:shadowColor="#333333"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
         android:textSize="20dp"       
+	    android:gravity="center_horizontal|center"         
+        android:id="@+id/today"
+  
         />
     
     <ScrollView
@@ -34,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:stretchColumns="0,1,2"
+        android:stretchColumns="*"
         android:id="@+id/table" >
 
     </TableLayout>

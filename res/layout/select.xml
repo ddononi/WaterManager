@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgboard"    
     android:orientation="vertical" >
 
     
@@ -9,8 +10,13 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:text="컵 선택하기"
-	    android:gravity="center_horizontal"
-	    android:textSize="20dp"
+	    android:gravity="center_horizontal|center"
+        android:textColor="#111111"
+        android:shadowColor="#333333"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:textSize="20dp"	    
 	    android:layout_marginTop="10dp"  
 
         />
@@ -29,32 +35,32 @@
                 android:layout_marginBottom="10dp"   >
 
                 <ImageButton
-                    android:background="@drawable/cup"
+                    android:background="@drawable/water1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:layout_margin="1dp"
-                    android:id="@+id/w100"
+                    android:id="@+id/w50"
                     android:textSize="10dp"
                     android:onClick="mOnClick"  />
 
                 <ImageButton
-                    android:background="@drawable/cup"
+                    android:background="@drawable/water2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="1dp"
+                    android:id="@+id/w150"
+                    android:textSize="10dp"
+                    android:onClick="mOnClick"  />
+
+                <ImageButton
+                    android:background="@drawable/water3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:layout_margin="1dp"
                     android:id="@+id/w200"
-                    android:textSize="10dp"
-                    android:onClick="mOnClick"  />
-
-                <ImageButton
-                    android:background="@drawable/cup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_margin="1dp"
-                    android:id="@+id/w300"
                     android:textSize="10dp"
                     android:onClick="mOnClick"  />
             </TableRow>
@@ -66,17 +72,7 @@
                 android:layout_marginBottom="10dp"   >
 
                 <ImageButton
-                    android:background="@drawable/cup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_margin="1dp"
-                    android:id="@+id/w400"
-                    android:textSize="10dp"
-                    android:onClick="mOnClick"  />
-
-                <ImageButton
-                    android:background="@drawable/cup"
+                    android:background="@drawable/water4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -86,24 +82,7 @@
                     android:onClick="mOnClick"  />
 
                 <ImageButton
-                    android:background="@drawable/cup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_margin="1dp"
-                    android:id="@+id/w600"
-                    android:textSize="10dp"
-                    android:onClick="mOnClick"  />
-            </TableRow>
-            
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"   >
-
-                <ImageButton
-                    android:background="@drawable/cup"
+                    android:background="@drawable/water5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -113,25 +92,16 @@
                     android:onClick="mOnClick"  />
 
                 <ImageButton
-                    android:background="@drawable/cup"
+                    android:background="@drawable/water6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:layout_margin="1dp"
-                    android:id="@+id/w800"
+                    android:id="@+id/w1000"
                     android:textSize="10dp"
                     android:onClick="mOnClick"  />
-
-                <ImageButton
-                    android:background="@drawable/cup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_margin="1dp"
-                    android:id="@+id/w900"
-                    android:textSize="10dp"
-                    android:onClick="mOnClick"  />
-            </TableRow>                
+            </TableRow>
+             
          
         </TableLayout>
     

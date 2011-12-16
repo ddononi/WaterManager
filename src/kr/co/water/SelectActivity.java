@@ -45,41 +45,32 @@ public class SelectActivity extends Activity {
      */
     public void mOnClick(View v){
     	switch(v.getId()){
-    	case R.id.w100:
-    		selectWater = 100;
+    	case R.id.w50:
+    		selectWater = 50;
+    		break;
+    	case R.id.w150:
+    		selectWater = 150;
     		break;
     	case R.id.w200:
     		selectWater = 200;
     		break;
-    	case R.id.w300:
-    		selectWater = 300;
-    		break;
-    	case R.id.w400:
-    		selectWater = 400;
-    		break;
     	case R.id.w500:
     		selectWater = 500;
-    		break;
-    	case R.id.w600:
-    		selectWater = 600;
     		break;
     	case R.id.w700:
     		selectWater = 700;
     		break;
-    	case R.id.w800:
-    		selectWater = 800;
+    	case R.id.w1000:
+    		selectWater = 1000;
     		break;
-    	case R.id.w900:
-    		selectWater = 900;
-    		break;    				
+  				
     	}
     	
     	// 마신 물이 정상적으로 insert 되면
     	if( drinkWater(selectWater) > 0 ){
     		// 메인 엑티비티로
-    		Toast.makeText(this, "냠냠♪", Toast.LENGTH_SHORT).show();
+    		Toast.makeText(this, selectWater + "mL를 마셨습니다♪", Toast.LENGTH_SHORT).show();
     	}
-    		
     	finish();	// 현재 액티비티 종료
 
     }

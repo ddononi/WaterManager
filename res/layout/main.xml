@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/bgboard"    
     android:orientation="vertical" >
 	
     <LinearLayout
@@ -16,24 +17,37 @@
             android:gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:text="Today's Goal : 2000mL"
+            android:textColor="#111111"
+            android:shadowColor="#333333"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textSize="20dp"
+            android:layout_marginTop="20px"
              />
-        <!-- 
-        <ImageView
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:text="Today's Goal : 2000mL"
-             />        
-        -->
-        
+       
         <TextView
             android:layout_width="fill_parent"
             android:gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:text="현재 마신물 : "
             android:id="@+id/today_water_txt"
+            android:textColor="#111111"
+            android:shadowColor="#333333"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textSize="20dp"
              />
                 
+        <ImageView
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:src="@drawable/p1"
+            android:id="@+id/person"
+             />        
+     
     </LinearLayout>
 
     <LinearLayout

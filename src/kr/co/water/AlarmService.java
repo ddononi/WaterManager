@@ -16,8 +16,9 @@ import android.util.Log;
  *	알람을 실행하고 알람시간이 되면 브로드캐스팅을 한다. 
  */
 public class AlarmService extends Service {
-	private Calendar calendar = null;			// 현재시간
-	
+	private Calendar calendar = null;	// 현재시간
+	private AlarmManager am;			// 알람 서비스
+	private PendingIntent sender; 		// 알람 notification을 위한 팬딩인텐트
 	/** 서비스가 실행될때  */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
@@ -35,10 +36,10 @@ public class AlarmService extends Service {
 				"알람시간 : " + calendar.get(Calendar.HOUR_OF_DAY) + ":" +
 							 calendar.get(Calendar.MINUTE));
 		// 시스템서비스에서 알람매니져를 얻어온다.
-		AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+		am = (AlarmManager)getSystemService(ALARM_SERVICE);
 		// 브로드케스트 리시버에 보낼 팬딩인텐트, 이전 팬딩인텐트가 있으면 취소하고 새로 실행
 		Intent i = new Intent(getBaseContext(), AlarmReceiver.class);
-		PendingIntent sender = PendingIntent.getBroadcast(getBaseContext(),
+		sender = PendingIntent.getBroadcast(getBaseContext(),
 				0,  i, PendingIntent.FLAG_CANCEL_CURRENT);
 		am.set(AlarmManager.RTC_WAKEUP,	calendar.getTimeInMillis(), sender);	// 알람설정		
 		Log.i("dservice", "onstartCommand");
@@ -55,6 +56,8 @@ public class AlarmService extends Service {
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		Log.i("dservice", "stop!");
+		stopSelf();
+		am.cancel(sender);		// 알람 취소
 		super.onDestroy();
 	}
 	
@@ -63,9 +66,11 @@ public class AlarmService extends Service {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
 
-	
+	@Override
+	public boolean onUnbind(Intent intent) {
+		// TODO Auto-generated method stub
+		return super.onUnbind(intent);
+	}
 
 }

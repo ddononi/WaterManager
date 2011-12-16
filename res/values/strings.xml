@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="hello">Hello World, WaterManagerActivity!</string>
-    <string name="app_name">WaterManager</string>
+    <string name="app_name">워터 매니져</string>
 
 </resources>

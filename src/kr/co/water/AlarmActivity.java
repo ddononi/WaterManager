@@ -1,5 +1,6 @@
 package kr.co.water;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -106,6 +107,15 @@ public class AlarmActivity extends BaseActivity implements
 		}else{
 			alarm = false;
 			msg = "알람을  종료합니다.";
+			//	서비스명을 통한 서비스 종료 
+			ComponentName service = startService(new Intent(this, AlarmService.class));
+			try {
+				Class serviceClass = Class.forName(service.getClassName());
+				stopService(new Intent(this, serviceClass));
+			} catch (ClassNotFoundException e) {
+			}			
+	
+
 		}
 		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 		editor.putBoolean("alarm", alarm);
