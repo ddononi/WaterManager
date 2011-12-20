@@ -1,6 +1,7 @@
 package kr.co.water;
 
 import java.util.Calendar;
+import kr.co.water.chart.IDemoChart;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,10 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,15 +18,6 @@ import android.widget.TextView;
  * 메뉴 및 현재 마신 물의 상태를 보여주는 메인 액티비티
  */
 public class MainActivity extends BaseActivity {
-	private int[] images = {	// 마신양에 따라 보여줄 이미지
-			R.drawable.water1,
-			R.drawable.water2,
-			R.drawable.water3,
-			R.drawable.water4,
-			R.drawable.water5,
-			R.drawable.water6
-			
-	};
 	
 	private Calendar calendar; 	// 날짜
 	private ImageView personIV;	// 사람 이미지
@@ -122,7 +110,7 @@ public class MainActivity extends BaseActivity {
 
 		return String.format("%04d-%02d-%02d", y, m, d);
 	}
-
+	
 	/**
 	 * 버튼 클릭시 해당 인텐로 넘김
 	 */
@@ -136,7 +124,9 @@ public class MainActivity extends BaseActivity {
 			intent = new Intent(this, AlarmActivity.class);
 			break;
 		case R.id.chart_btn: // 일주일간 마신 물의 차트
-			intent = new Intent(this, ChartActivity.class);
+			IDemoChart chart = new MyChart();
+			intent =  chart.execute(this);
+
 			break;
 		case R.id.intro_btn: // 앱 소개
 			intent = new Intent(this, IntroActivity.class);

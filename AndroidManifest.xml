@@ -22,10 +22,10 @@
         <activity android:name="MainActivity" android:screenOrientation="portrait"></activity>
         <activity android:name="DrinkActivity" android:screenOrientation="portrait"></activity>
         <activity android:name="AlarmActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name="ChartActivity" android:screenOrientation="portrait"></activity>
         <activity android:name="IntroActivity" android:screenOrientation="portrait"></activity>
         <activity android:name="SelectActivity" android:screenOrientation="portrait"></activity>
-        
+        <!-- AchartEngine에 차트를 그려줄 엑티비티 -->
+        <activity android:name="org.achartengine.GraphicalActivity" />
         <receiver android:name=".AlarmReceiver" />
         <service android:name="AlarmService"></service>            
     </application>

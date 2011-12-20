@@ -110,7 +110,7 @@ public class AlarmActivity extends BaseActivity implements
 			//	서비스명을 통한 서비스 종료 
 			ComponentName service = startService(new Intent(this, AlarmService.class));
 			try {
-				Class serviceClass = Class.forName(service.getClassName());
+				Class<?> serviceClass = Class.forName(service.getClassName());
 				stopService(new Intent(this, serviceClass));
 			} catch (ClassNotFoundException e) {
 			}			
